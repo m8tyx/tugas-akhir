@@ -8,20 +8,18 @@ st.title("Analisis jumlah User Rental Bike")
 st.subheader("Analisis jumlah user reantal bike berdasarkan keadaan lingkungan")
 @st.cache_data
 def all_data():
-    days_df = pd.read_csv('C:/Users/User/Documents/tugas-akhir/day.csv', parse_dates=['dteday'])
-    hour_df = pd.read_csv('C:/Users/User/Documents/tugas-akhir/hour.csv', parse_dates=['dteday'])
-    hour_df.rename(columns={
+    main_df = pd.read_csv('C:/Users/User/Documents/tugas-akhir/dashboard/main_data.csv', parse_dates=['dteday'])
+    main_df.rename(columns={
         "cnt":"Total_Customer",
         "atemp":"Temperature",
         "casual":"Unregistered",
         "hum":"Humidity"
     },inplace=True)
-    return hour_df, days_df
+    return main_df
 
-
-hour_df, days_df = all_data()
-min_date = hour_df["dteday"].min()
-max_date = hour_df["dteday"].max()
+main_df = all_data()
+min_date = main_df["dteday"].min()
+max_date = main_df["dteday"].max()
 
 with st.sidebar:
     start_date, end_date = st.date_input(
@@ -29,9 +27,9 @@ with st.sidebar:
         max_value=max_date,
         value=[min_date, max_date]
     )
-filter_df = hour_df[
-    (hour_df["dteday"] >= pd.to_datetime(start_date)) & 
-    (hour_df["dteday"] <= pd.to_datetime(end_date))
+filter_df = main_df[
+    (main_df["dteday"] >= pd.to_datetime(start_date)) & 
+    (main_df["dteday"] <= pd.to_datetime(end_date))
 ]
 
 #Kelembapan
