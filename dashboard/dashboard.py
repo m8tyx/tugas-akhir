@@ -8,7 +8,7 @@ st.title("Analisis jumlah User Rental Bike")
 st.subheader("Analisis jumlah user reantal bike berdasarkan keadaan lingkungan")
 @st.cache_data
 def all_data():
-    main_df = pd.read_csv('./dashboard/main_data.csv', parse_dates=['dteday'])
+    main_df = pd.read_csv('./main_data.csv', parse_dates=['dteday'])
     main_df.rename(columns={
         "cnt":"Total_Customer",
         "atemp":"Temperature",
