@@ -16,11 +16,12 @@ main_df.rename(columns={
     "hum": "Humidity"
 }, inplace=True)
 
-# Dapatkan min & max tanggal
+# Dapatkan filter tanggal
 min_date = main_df["dteday"].min()
 max_date = main_df["dteday"].max()
 
 with st.sidebar:
+    st.image("https://joyride.city/wp-content/uploads/2024/04/The-best-electric-scooters-and-bikes-for-rental-businesses-blog-header-image.png")
     start_date, end_date = st.date_input(
         label='Rentang Waktu',min_value=min_date,
         max_value=max_date,
