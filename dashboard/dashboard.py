@@ -137,7 +137,7 @@ ax.grid(axis='y', linestyle='--', alpha=0.7)
 
 ax.set_title('Jumlah Customer Berdasarkan Waktu')
 ax.set_xlabel('Time (Hour)')
-ax.set_ylabel('Jumlah Pengunjung (Dalam Jutaan)')
+ax.set_ylabel('Jumlah Pengunjung')
 
 #Hari Kerja
 fig_days, ax = plt.subplots(figsize=(10, 5))
