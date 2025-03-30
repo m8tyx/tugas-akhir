@@ -6,18 +6,16 @@ import pandas as pd
 
 st.title("Analisis jumlah User Rental Bike")
 st.subheader("Analisis jumlah user reantal bike berdasarkan keadaan lingkungan")
-@st.cache_data
-def all_data():
-    main_df = pd.read_csv('./main_data.csv', parse_dates=['dteday'])
-    main_df.rename(columns={
-        "cnt":"Total_Customer",
-        "atemp":"Temperature",
-        "casual":"Unregistered",
-        "hum":"Humidity"
-    },inplace=True)
-    return main_df
 
-main_df = all_data()
+main_df = pd.read_csv("./main_data.csv", parse_dates=['dteday'])
+main_df.rename(columns={
+    "cnt": "Total_Customer",
+    "atemp": "Temperature",
+    "casual": "Unregistered",
+    "hum": "Humidity"
+}, inplace=True)
+
+# Dapatkan min & max tanggal
 min_date = main_df["dteday"].min()
 max_date = main_df["dteday"].max()
 
