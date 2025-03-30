@@ -48,6 +48,8 @@ sns.barplot(
     estimator=sum,
     ax=ax
 )
+ax.grid(axis='y', linestyle='--', alpha=0.7)
+
 ax.set_title('Jumlah Customer Berdasarkan Rentang Kelembapan')
 ax.set_xlabel('Rentang Kelembapan setelah di normalisasi')
 ax.set_ylabel('Jumlah Pengunjung (Dalam Jutaan)')
@@ -66,6 +68,8 @@ sns.barplot(
     data=groupedwind_df,
     estimator=sum
 )
+ax.grid(axis='y', linestyle='--', alpha=0.7)
+
 ax.set_title('Jumlah Customer Berdasarkan kecepatan angin')
 ax.set_xlabel('Kecepatan angin setelah normalisasi')
 ax.set_ylabel('Jumlah Pengunjung (Dalam Jutaan)')
@@ -84,9 +88,12 @@ sns.barplot(
     data=groupedtemp_df,
     estimator=sum
 )
+ax.grid(axis='y', linestyle='--', alpha=0.7)
+
 ax.set_title('Jumlah Customer Berdasarkan Rentang Suhu')
 ax.set_xlabel('Rentang suhu setelah di normalisasi')
 ax.set_ylabel('Jumlah Pengunjung (Dalam Jutaan)')
+
 #Cuaca
 fig_cuaca, ax = plt.subplots(figsize=(10, 5))
 sns.barplot(
@@ -98,11 +105,12 @@ sns.barplot(
 
 weather_labels = {0: "Cerah", 1: "Berawan", 2: "Gerimis", 3: "Hujan Lebat"}
 
+ax.grid(axis='y', linestyle='--', alpha=0.7)
+
 ax.set_title('Jumlah Customer Berdasarkan Cuaca')
 ax.set_xlabel('Kondisi Cuaca')
 ax.set_ylabel('Jumlah Pengunjung (Dalam Jutaan)')
 ax.set_xticklabels(list(weather_labels.values()))
-
 
 option = st.selectbox("Pilih Grafik User berdasarkan keadaan", ["Kelembapan", "Suhu", "Windspeed","Cuaca"])
 
@@ -116,6 +124,7 @@ elif option == "Cuaca":
     st.pyplot(fig_cuaca)
 
 st.subheader("Analisis jumlah user reantal bike berdasarkan Waktu")
+
 #Jam
 fig_hour, ax = plt.subplots(figsize=(10, 5))
 sns.barplot(
@@ -124,6 +133,7 @@ sns.barplot(
     data=filter_df,
     estimator=sum
 )
+ax.grid(axis='y', linestyle='--', alpha=0.7)
 
 ax.set_title('Jumlah Customer Berdasarkan Waktu')
 ax.set_xlabel('Time (Hour)')
@@ -138,6 +148,9 @@ sns.barplot(
     estimator=sum
 )
 days_label = {0: "Bukan Hari Kerja", 1: "Hari Kerja"}
+
+ax.grid(axis='y', linestyle='--', alpha=0.7)
+
 ax.set_title('Jumlah Customer Berdasarkan Waktu')
 ax.set_xlabel('Hari')
 ax.set_ylabel('Jumlah Pengunjung (Dalam Jutaan)')
