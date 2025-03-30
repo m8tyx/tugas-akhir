@@ -3,11 +3,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import pandas as pd
+import os
 
 st.title("Analisis jumlah User Rental Bike")
 st.subheader("Analisis jumlah user reantal bike berdasarkan keadaan lingkungan")
 
-main_df = pd.read_csv("./main_data.csv", parse_dates=['dteday'])
+main_df = pd.read_csv(os.path.join(os.path.dirname(__file__), "main-data.csv"), parse_dates=['dteday'])
 main_df.rename(columns={
     "cnt": "Total_Customer",
     "atemp": "Temperature",
