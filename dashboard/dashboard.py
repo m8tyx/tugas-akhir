@@ -6,7 +6,7 @@ import pandas as pd
 import os
 
 st.title("Analisis jumlah User Rental Bike")
-st.subheader("Analisis jumlah user reantal bike berdasarkan keadaan lingkungan")
+st.subheader("Analisis jumlah user rental bike berdasarkan keadaan lingkungan")
 
 main_df = pd.read_csv(os.path.join(os.path.dirname(__file__), "main_data.csv"), parse_dates=['dteday'])
 main_df.rename(columns={
@@ -123,7 +123,7 @@ elif option == "Windspeed":
 elif option == "Cuaca":
     st.pyplot(fig_cuaca)
 
-st.subheader("Analisis jumlah user reantal bike berdasarkan Waktu")
+st.subheader("Analisis jumlah user rental bike berdasarkan Waktu")
 
 #Jam
 fig_hour, ax = plt.subplots(figsize=(10, 5))
@@ -162,7 +162,7 @@ if option_2 == "Jam":
 elif option_2 == "Hari kerja":
     st.pyplot(fig_days)
 
-st.subheader("Analisis jumlah user reantal bike berdasarkan Jenis user")
+st.subheader("Analisis jumlah user rental bike berdasarkan Jenis user")
 
 Total_Unregistered = filter_df["Unregistered"].sum()
 total_registered = filter_df["registered"].sum()
